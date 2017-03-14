@@ -40,8 +40,7 @@ def filer_func(emails):
     """
     The main filtered function that validate email.
     """
-    email_list = list(filter(lambda em: "@" in em, emails))
-    email_list = list(map(check_email_name, email_list))
+    email_list = list(map(check_email_name, filter(lambda em: "@" in em, emails)))
     email_list = list(map(check_domain_name, email_list))
 
     email_list = list(filter(lambda el: el != None, email_list))
